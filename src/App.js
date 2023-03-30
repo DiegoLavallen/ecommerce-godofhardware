@@ -1,11 +1,16 @@
-
-import './App.css';
-import {Login} from "./Login"
+import "./App.css";
+import Counter from "./components/Counter/Counter";
+import ItemList from "./components/ItemList/ItemList";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
+  let saludo = "hola juancito como estas";
+
   return (
     <div className="App">
-     <Login />
+      <Navbar color="blue" />
+      <ItemList greeting={saludo} />
+      <Counter />
     </div>
   );
 }
