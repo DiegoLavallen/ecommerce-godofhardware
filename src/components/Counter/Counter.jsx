@@ -1,20 +1,4 @@
-import { useState } from "react";
-
-const Counter = () => {
-  const [counter, setCounter] = useState(0);
-
-  const sumar = () => {
-    setCounter(counter + 1);
-  };
-
-  const restar = () => {
-    setCounter(counter - 1);
-  };
-
-  const reiniciar = () => {
-    setCounter(0);
-  };
-
+const Counter = ({ sumar, restar, reiniciar, counter }) => {
   return (
     <div>
       <h1>este es el contador</h1>

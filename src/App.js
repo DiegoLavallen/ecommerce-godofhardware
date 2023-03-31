@@ -1,5 +1,5 @@
 import "./App.css";
-import Counter from "./components/Counter/Counter";
+import CounterContainer from "./components/Counter/CounterContainer";
 import ItemList from "./components/ItemList/ItemList";
 import Navbar from "./components/Navbar/Navbar";
 
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Navbar color="blue" />
       <ItemList greeting={saludo} />
-      <Counter />
+      <CounterContainer />
     </div>
   );
 }
