@@ -1,12 +1,18 @@
+import ItemCard from "./ItemCard";
+
 const ItemList = ({ items }) => {
   return (
-    <div style={{ display: "flex" }}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-evenly",
+        minHeight: "90vh",
+        padding: "40px",
+      }}
+    >
       {items.map((item) => {
-        return (
-          <div>
-            <h3>{item.title}</h3>
-          </div>
-        );
+        return <ItemCard item={item} key={item.id} />;
       })}
     </div>
   );

@@ -4,8 +4,7 @@ export let products = [
     title: "Motherboard Asus B450M TUF PLUS II Gaming AM4",
     price: 38.899,
     stock: 1,
-    description:
-      "Tarjeta madre gamer AMD B450 (AM4) ATX con doble M.2, micrófono con cancelación de ruido AI, HDMI, DisplayPort, USB 3.2 Gen 2 Type-A y Type-C y compatibilidad con iluminación Aura Sync RGB",
+    description: "Tarjeta madre gamer AMD B450 (AM4) ATX con doble M.",
     category: "Componentes",
     img: "https://res.cloudinary.com/ddhdnvspr/image/upload/v1680879458/90MB1620-M0EAY0-BULK_800_xeqdvm.jpg",
   },
