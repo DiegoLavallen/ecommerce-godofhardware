@@ -1,28 +1,33 @@
 import "./Navbar.css";
 import logo from "../../Assets/logoKratos.png";
 import CartWidget from "../CartWidget/CartWidget";
+import { Outlet, Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navContainer">
-      <img src={logo} alt="Este es el logo de la empresa" />
-      <ul className="navLinks">
-        <li>
-          <a href="#">Componentes</a>
-        </li>
-        <li>
-          <a href="#">Computadoras</a>
-        </li>
-        <li>
-          <a href="#">Perifericos</a>
-        </li>
-      </ul>
-      <a href="#">
-        <button>CONTACTO</button>
-      </a>
+    <div>
+      <nav className="navContainer">
+        <Link to="/">
+          <img src={logo} alt="Este es el logo de la empresa" />
+        </Link>
+        <ul className="navLinks">
+          <Link className="categoryLinks" to="/">
+            Componentes
+          </Link>
+          <Link className="categoryLinks" to="category/Computadoras">
+            Computadoras
+          </Link>
+          <Link className="categoryLinks" to="category/Perifericos">
+            Perifericos
+          </Link>
 
-      <CartWidget />
-    </nav>
+          <Link className="categoryLinks">CONTACTO</Link>
+        </ul>
+        <CartWidget />
+      </nav>
+
+      <Outlet />
+    </div>
   );
 };
 

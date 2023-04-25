@@ -24,21 +24,21 @@ button {
   background-color: #24252a;
 }
 
-.navLinks {
+.categoryLinks {
   list-style: none;
 }
 
-.navLinks li {
+.categoryLinks {
   display: inline-block;
   padding: 0px 20px;
 }
 
-.navLinks li a {
+.categoryLinks {
   transition: all 0.3s ease 0s;
   font-size: 20px;
 }
 
-.navLinks li a:hover {
+.categoryLinks:hover {
   color: rgb(253, 44, 44);
 }
 
