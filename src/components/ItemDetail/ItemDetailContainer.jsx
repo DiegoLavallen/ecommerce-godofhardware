@@ -1,29 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
-import { products } from "../../productsMock";
-import useCounter from "../../utils/hooks/useCounter";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext";
+import Swal from "sweetalert2";
+import { db } from "../../FirebaseConfig";
+import { getDoc, collection, doc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
 
-  const { counter, increment, decrement, reset } = useCounter(0);
+  const { agregarAlCarrito, getTotalQuantityById } = useContext(CartContext);
 
   const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
-    let encontrado = products.find((prod) => prod.id === +id);
-    setProduct(encontrado);
+    const itemCollection = collection(db, "products");
+    const refDoc = doc(itemCollection, id);
+    getDoc(refDoc)
+      .then((res) =>
+        setProduct({
+          ...res.data(),
+          id: res.id,
+        })
+      )
+      .catch((err) => console.log(err));
   }, [id]);
+
+  const onAdd = (cantidad) => {
+    let data = {
+      ...product,
+      quantity: cantidad,
+    };
+
+    agregarAlCarrito(data);
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Producto agregar al carrito",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
+  let cantidadTotal = getTotalQuantityById(product.id);
+  console.log(cantidadTotal);
 
   return (
     <div>
-      <ItemDetail product={product} />
-      <h1>{counter}</h1>
-      <button onClick={increment}>Sumar</button>
-      <button onClick={decrement}>Restar</button>
-      <button onClick={reset}>Borrar</button>
+      <ItemDetail
+        product={product}
+        onAdd={onAdd}
+        cantidadTotal={cantidadTotal}
+      />
     </div>
   );
 };

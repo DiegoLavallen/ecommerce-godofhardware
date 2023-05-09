@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Counter from "./Counter.jsx";
 
-const CounterContainer = () => {
-  const [counter, setCounter] = useState(0);
+const CounterContainer = ({ stock, onAdd, initial = 1 }) => {
+  const [counter, setCounter] = useState(initial);
+
+  useEffect(() => {
+    setCounter(initial);
+  }, [initial]);
 
   const sumar = () => {
-    setCounter(counter + 1);
+    counter < stock ? setCounter(counter + 1) : alert("Stock maximo");
   };
 
   const restar = () => {
-    if (counter > 0) {
+    if (counter > 1) {
       setCounter(counter - 1);
     }
   };
@@ -24,6 +28,7 @@ const CounterContainer = () => {
         restar={restar}
         reiniciar={reiniciar}
         counter={counter}
+        onAdd={onAdd}
       />
     </div>
   );

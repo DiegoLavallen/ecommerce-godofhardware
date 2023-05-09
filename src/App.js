@@ -6,23 +6,26 @@ import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import Navbar from "./components/Navbar/Navbar";
 import CartContainer from "./components/Cart/CartContainer";
 import Form from "./components/Form/Form";
+import CartContextProvider from "./Context/CartContext";
+import FormCheckoutContainer from "./components/FormCheckout/FormCheckoutContainer";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<Navbar />}>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route
-            path="/category/:categoryName"
-            element={<ItemListContainer />}
-          />
-          <Route path="/ItemDetail/:id" element={<ItemDetailContainer />} />
-          {/* <Route path="*" element={<h1>404 Not Found</h1>} /> */}
-        </Route>
-        <Route path="/Cart" element={<CartContainer />} />
-        <Route path="/Form" element={<Form />} />
-      </Routes>
+      <CartContextProvider>
+        <Routes>
+          <Route element={<Navbar />}>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route
+              path="/category/:categoryName"
+              element={<ItemListContainer />}
+            />
+            <Route path="/ItemDetail/:id" element={<ItemDetailContainer />} />
+            <Route path="/Checkout" element={<FormCheckoutContainer />} />
+            <Route path="/Cart" element={<CartContainer />} />
+          </Route>
+        </Routes>
+      </CartContextProvider>
     </BrowserRouter>
   );
 }

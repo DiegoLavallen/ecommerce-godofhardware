@@ -1,0 +1,45 @@
+import { Button, Grid, TextField } from "@mui/material";
+import React from "react";
+
+const FormCheckout = () => {
+  return (
+    <div>
+      <form action="">
+        <Grid container spacing={2} margin={1} flex justifyContent={"center"}>
+          <Grid item xs={12} sm={7}>
+            <TextField
+              id="outlined-basic"
+              label="Nombre"
+              variant="outlined"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={7}>
+            <TextField
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={7}>
+            <TextField
+              id="outlined-basic"
+              label="Telefono"
+              variant="outlined"
+              fullWidth
+            />
+          </Grid>
+
+          <Grid xs={6}>
+            <Button variant="contained" sx={{ marginTop: 2 }}>
+              Comprar
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
+    </div>
+  );
+};
+
+export default FormCheckout;

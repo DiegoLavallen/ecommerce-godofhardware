@@ -1,0 +1,8 @@
+.detailContainer {
+  margin-top: auto;
+}
+
+.detailButton {
+  display: flex;
+  flex-wrap: wrap;
+}
