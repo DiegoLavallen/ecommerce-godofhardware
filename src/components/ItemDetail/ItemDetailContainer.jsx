@@ -43,7 +43,6 @@ const ItemDetailContainer = () => {
   };
 
   let cantidadTotal = getTotalQuantityById(product.id);
-  console.log(cantidadTotal);
 
   return (
     <div>

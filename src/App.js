@@ -24,6 +24,7 @@ function App() {
             <Route path="/Checkout" element={<FormCheckoutContainer />} />
             <Route path="/Cart" element={<CartContainer />} />
           </Route>
+          {/* <Route path="/form" element={<Form />} /> */}
         </Routes>
       </CartContextProvider>
     </BrowserRouter>

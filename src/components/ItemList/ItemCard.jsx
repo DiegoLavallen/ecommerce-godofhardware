@@ -27,7 +27,7 @@ const ItemCard = ({ item }) => {
       </CardContent>
 
       <CardActions className="detailContainer">
-        <Link to={`ItemDetail/${item.id}`}>
+        <Link to={`/ItemDetail/${item.id}`}>
           <Button className="DetailButton" variant="contained" size="small">
             Ver detalle
           </Button>
